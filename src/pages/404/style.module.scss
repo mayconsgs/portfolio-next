@@ -1,0 +1,57 @@
+.pageNotFound {
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-height: 1080px;
+
+    > span {
+      text-align: center;
+    }
+
+    svg#svg-erro {
+      max-height: 60vh;
+      max-width: 100rem;
+      width: calc(100% - 1.6rem * 2);
+      margin: 1.6rem;
+
+      path#Caminho_22,
+      path#Caminho_23,
+      path#Caminho_33 {
+        fill: var(--color-primary);
+      }
+
+      path#Caminho_21,
+      path#Caminho_42,
+      path#Caminho_45,
+      path#Caminho_47,
+      path#Caminho_49,
+      path#Caminho_51,
+      path#Caminho_54,
+      path#Caminho_56,
+      path#Caminho_58,
+      ellipse#Elipse_9,
+      ellipse#Elipse_10,
+      path#Caminho_60 {
+        fill: var(--color-secondary);
+      }
+
+      path#Caminho_61,
+      circle#Elipse_14,
+      circle#Elipse_15 {
+        fill: white;
+      }
+
+      circle#Elipse_16,
+      circle#Elipse_17 {
+        fill: var(--color-text);
+      }
+    }
+
+    > button {
+      margin-top: 4rem;
+    }
+  }
+}

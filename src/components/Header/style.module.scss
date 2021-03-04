@@ -1,0 +1,118 @@
+@use '../../styles/measures';
+
+.pageHeader {
+  height: 5.6rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 0rem;
+  z-index: 100000;
+
+  background-color: var(--color-header);
+
+  .menuButton {
+    position: absolute;
+    display: none;
+    * {
+      width: 0;
+      color: var(--color-text);
+    }
+
+    @media screen and (max-width: measures.$max-to-mobile) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      * {
+        width: auto;
+      }
+    }
+  }
+
+  .contentHeader {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0rem 1.6rem;
+    max-width: 123.2rem;
+    width: 100%;
+    position: relative;
+
+    .logo {
+      height: 4rem;
+      margin-top: 0.8rem;
+      margin-bottom: 0.8rem;
+      fill: var(--color-primary);
+    }
+
+    nav {
+      min-width: 60rem;
+      margin-left: auto;
+      height: 100%;
+      width: fit-content;
+
+      @media screen and (max-width: measures.$max-to-mobile) {
+        width: 100%;
+        height: calc(100vh - 5.6rem);
+        position: absolute;
+        left: 0;
+        visibility: hidden;
+        top: 5.6rem;
+        transition-duration: 0.5s, 0.5s;
+        transition-property: background-color, visibility;
+      }
+
+      > ul {
+        height: 100%;
+        padding: 0rem;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (max-width: measures.$max-to-mobile) {
+          width: 80%;
+          position: relative;
+          padding: 1.6rem;
+          left: -30rem;
+          max-width: 30rem;
+          align-items: start;
+          justify-content: start;
+          transition: left 0.5s;
+
+          a {
+            margin-left: unset;
+          }
+        }
+      }
+
+      > ul {
+        background-color: var(--color-header);
+      }
+    }
+
+    .check {
+      display: none;
+
+      @media screen and (max-width: measures.$max-to-mobile) {
+        &:checked {
+          ~ nav {
+            visibility: visible;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition-duration: 0.5s, 0;
+
+            > ul {
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+    .logoPort {
+      @media screen and (max-width: measures.$max-to-mobile) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

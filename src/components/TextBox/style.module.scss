@@ -1,0 +1,25 @@
+@use '../../styles/fonts';
+@use '../../styles/animations';
+
+.textBox {
+  position: relative;
+  margin-bottom: 0.8rem;
+
+  input.checkError {
+    display: none;
+  }
+
+  input {
+    padding: 0 2.4rem;
+    height: 4.2rem;
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 0.8rem;
+    font: fonts.$font-input-text;
+
+    background-color: var(--color-header);
+    color: var(--color-text);
+  }
+
+  @include animations.border-spin(var(--color-secondary), 0.5s, focus-within);
+}

@@ -1,0 +1,55 @@
+@use '../../styles/measures';
+
+.menuItem {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+
+  a {
+    color: var(--color-text);
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+
+    &::after {
+      background-color: var(--color-secondary);
+    }
+  }
+
+  a {
+    @media (any-hover: hover) {
+      &:hover {
+        transition: 0.3s;
+
+        &::after {
+          content: "";
+          height: 0.2rem;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          border-radius: 0.1rem;
+          animation: anim 0.4s forwards;
+
+          @keyframes anim {
+            from {
+              width: 0;
+            }
+
+            to {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: measures.$max-to-mobile) {
+    height: 5rem;
+  }
+}

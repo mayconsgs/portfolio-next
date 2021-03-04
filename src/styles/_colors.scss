@@ -1,0 +1,47 @@
+// Cores primárias
+$color-primary: rgb(112, 48, 161);
+$color-primary-50: rgba(112, 48, 161, 0.5);
+$color-primary-light: #a25ed2;
+$color-primary-dark: rgb(62, 0, 112);
+$color-primary-dark-50: rgba(62, 0, 112, 0.5);
+
+// Cores secundárias
+$color-secondary: #07c592;
+$color-secondary-50: #07c59280;
+$color-secondary-light: #5df9c2;
+$color-secondary-light-50: #5df9c280;
+$color-secondary-dark: #009465;
+
+$color-error: #b00020;
+$color-error-light: #e94948;
+$color-error-dark: #790000;
+
+// Cores de fundo
+$color-background-dark: #121212;
+$color-background-light: hsl(0, 0%, 97%);
+$color-background-links-dark: hsl(0, 0%, 9%);
+$color-background-links-light: $color-background-light;
+$color-background-form-light: hsl(0, 0%, 95%);
+
+//$color-base-textbox-dark: #4d4d4d;
+//$color-base-textbox-light: #3030b1;
+
+// Cores do header
+$color-header-dark: #1b1b1b;
+$color-header-light: white;
+
+// Cores de texto
+$color-text-light: #d9d4dd;
+$color-text-dark: rgba(0, 0, 0, 0.75);
+
+// Cores de título
+$color-title-dark: $color-primary-light;
+$color-title-light: $color-primary;
+
+// Dracula Theme
+$color-blue-dracula: #66d9ef;
+$color-green-dracula: #50fa7b;
+$color-purple-dracula: #bd93f9;
+$color-yellow-dracula: #f1fa8c;
+$color-background-dracula: #282a36;
+$color-pink-dracula: #ff79c6;

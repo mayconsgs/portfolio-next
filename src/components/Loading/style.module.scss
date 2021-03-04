@@ -1,0 +1,30 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+
+  .circle {
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+
+    &.animation {
+      $id: unique-id();
+      border-top: 3px solid var(--color-secondary);
+      animation: $id 1s infinite linear;
+
+      @keyframes #{$id} {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}

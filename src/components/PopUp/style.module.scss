@@ -1,0 +1,82 @@
+@use '../../styles/measures';
+
+@mixin removeBorderBotton {
+  @media screen and (max-width: measures.$max-to-mobile) {
+    border-bottom: 0;
+  }
+}
+
+@mixin border($color) {
+  border-right: solid 0.2rem $color;
+  border-left: solid 0.2rem $color;
+  border-bottom: solid 0.2rem $color;
+  border-top: solid 0.2rem $color;
+  @include removeBorderBotton();
+}
+
+.popUp {
+  position: fixed;
+  left: 2rem;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 0.8rem rgba($color: #000000, $alpha: 0.5);
+  background-color: var(--color-header);
+
+  &.ok {
+    @include border(var(--color-secondary));
+  }
+
+  &.error {
+    @include border(var(--color-error));
+  }
+
+  > div {
+    margin-right: 1.8rem + 0.8rem;
+    > span {
+      font-weight: bold;
+    }
+  }
+
+  > .iconButton {
+    right: 2rem;
+    position: absolute;
+    color: var(--color-text);
+  }
+
+  $id: inline-#{unique-id()};
+
+  animation: $id 0.5s forwards;
+
+  @keyframes #{$id} {
+    from {
+      bottom: -100px;
+    }
+
+    to {
+      bottom: 2rem;
+    }
+  }
+
+  @media screen and (max-width: measures.$max-to-mobile) {
+    border-radius: 0.8rem 0.8rem 0 0;
+    width: 100%;
+    right: 0;
+    left: 0;
+
+    $id: inline-#{unique-id()};
+
+    animation: $id 0.5s forwards;
+
+    @keyframes #{$id} {
+      from {
+        bottom: -100px;
+      }
+
+      to {
+        bottom: 0rem;
+      }
+    }
+  }
+}

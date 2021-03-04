@@ -1,0 +1,84 @@
+@use '../../styles/colors';
+@use '../../styles/fonts';
+@use '../../styles/measures';
+
+.contatos {
+  height: 100%;
+
+  .links,
+  .form {
+    width: 50vw;
+    padding: 0 1.6rem;
+    height: auto;
+
+    @media screen and (max-width: measures.$max-to-mobile) {
+      width: 100%;
+      padding-bottom: 6rem;
+    }
+
+    .conteudo {
+      margin-left: auto;
+    }
+
+    .conteudo,
+    form {
+      max-width: 60rem;
+
+      @media screen and (max-width: measures.$max-to-mobile) {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .content {
+    min-height: 100vh;
+    display: flex;
+    padding-bottom: 0rem;
+    margin: unset;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    height: auto;
+    max-width: unset;
+  }
+
+  .links {
+    background-color: colors.$color-background-links-dark;
+
+    @media (prefers-color-scheme: light) {
+      background-color: colors.$color-background-light;
+    }
+
+    .socialItem {
+      font: fonts.$font-social;
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      width: fit-content;
+      height: fit-content;
+      transition: color 0.2s;
+      color: var(--color-text);
+      @media (any-hover: hover) {
+        &:hover {
+          color: var(--color-secondary);
+        }
+      }
+
+      svg {
+        margin-right: 1.2rem;
+      }
+    }
+  }
+
+  .form {
+    background-color: colors.$color-background-dark;
+
+    @media (prefers-color-scheme: light) {
+      background-color: colors.$color-background-form-light;
+    }
+
+    button {
+      margin-top: 4.8rem;
+    }
+  }
+}

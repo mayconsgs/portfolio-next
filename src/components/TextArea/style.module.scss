@@ -1,0 +1,24 @@
+@use '../../styles/fonts';
+@use '../../styles/animations';
+
+$height-textarea: 4.2rem * 5;
+
+.textArea {
+  position: relative;
+  margin-bottom: 0.8rem;
+  height: $height-textarea;
+
+  textarea {
+    padding: 1.2rem 2.4rem;
+    resize: none;
+    height: $height-textarea;
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 0.8rem;
+    font: fonts.$font-input-text;
+    background-color: var(--color-header);
+    color: var(--color-text);
+  }
+
+  @include animations.border-spin(var(--color-secondary), 0.5s, focus-within);
+}

@@ -1,0 +1,16 @@
+@use '../../styles/measures';
+.galeriaDeProjetos {
+  .grid {
+    margin-top: 2.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.6rem;
+    row-gap: 1.6rem;
+  }
+
+  @media screen and (max-width: measures.$max-to-grid) {
+    .grid {
+      display: block;
+    }
+  }
+}
