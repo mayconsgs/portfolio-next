@@ -11,6 +11,13 @@
       text-align: center;
     }
 
+    img {
+      max-height: 60vh;
+      max-width: 100rem;
+      width: calc(100% - 1.6rem * 2);
+      margin: 1.6rem;
+    }
+
     svg#svg-erro {
       max-height: 60vh;
       max-width: 100rem;

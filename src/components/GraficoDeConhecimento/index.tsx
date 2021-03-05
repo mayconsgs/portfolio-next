@@ -15,14 +15,12 @@ const GraficoDeConhecimento: React.FC<Conhecimento> = ({
 }) => {
   return (
     <div className={styles.grafico}>
-      <div className={styles.technology}>
-        {" "}
+      <div>
         <IconTechnology size="2.5rem" /> {technology}
       </div>
-      <div className={styles.borderBar}>
-        <div className={styles.bar} style={{ width: `${percent}%` }}>
-          {percent}%
-        </div>
+
+      <div>
+        <div style={{ width: `${percent}%` }}>{percent}%</div>
       </div>
     </div>
   );

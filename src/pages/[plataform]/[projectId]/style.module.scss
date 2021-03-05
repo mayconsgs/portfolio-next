@@ -168,7 +168,7 @@
       .iconButton {
         color: hsl(0, 0%, 68%);
 
-        &#close {
+        &.close {
           position: absolute;
           top: 7.8rem;
           left: 1.6rem;

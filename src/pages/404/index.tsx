@@ -9,7 +9,7 @@ export default function PageNotFound() {
   return (
     <div className={styles.pageNotFound}>
       <main className={styles.content + " content"}>
-        <img src="public/assets/erro404.svg" alt="404" />
+        <img src="assets/erro404.svg" alt="Error 404" />
         <span>
           Opa, parece que não encontramos essa página. <br />É melhor voltar
           para o site.

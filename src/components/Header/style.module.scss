@@ -101,7 +101,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             transition-duration: 0.5s, 0;
 
-            > ul {
+            ul {
               left: 0;
             }
           }
@@ -109,6 +109,13 @@
       }
     }
     .logoPort {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 4rem;
+      }
+
       @media screen and (max-width: measures.$max-to-mobile) {
         margin-left: auto;
         margin-right: auto;

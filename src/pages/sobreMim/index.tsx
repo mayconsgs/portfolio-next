@@ -8,14 +8,18 @@ import {
   Sass,
   Typescript,
 } from "@icons-pack/react-simple-icons";
+import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import React, { FunctionComponent } from "react";
 import GraficoDeConhecimento from "../../components/GraficoDeConhecimento";
 import styles from "./style.module.scss";
 
-const SobreMim = () => {
+const SobreMim: FunctionComponent = () => {
   return (
     <div className={styles.sobreMim}>
+      <Head>
+        <title>Sobre min | Mayconsgs</title>
+      </Head>
       <main className="content">
         <section className="historia">
           <h1>Sobre mim</h1>

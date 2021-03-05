@@ -1,9 +1,11 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import ProjectView from "../../components/ProjectView";
 import { ProjectsProps } from "../../components/Slider";
 import { Firestore } from "../../services/firebase";
+import PageNotFound from "../404";
 import styles from "./style.module.scss";
 
 interface GaleriaDeProjetosProps {
@@ -14,6 +16,10 @@ const GaleriaDeProjetos = ({ projetos }: GaleriaDeProjetosProps) => {
   const router = useRouter();
   const plataform = router.query.plataform as string;
 
+  if (plataform != "apps" && plataform != "sites") {
+    return <PageNotFound />;
+  }
+
   const appsDescription =
     "Todos os aplicativos são produzidos com as mais novas e modernas ferramentas, linguagens e tecnologias como: Flutter, Dart, Android Studio, Kotlin, Swift e React Native. Graças a isso, posso fazer aplicações poderosas, fuídas e totalmente compatíveis com iOS e Android. Veja abaixo algumas aplicações já feitas:";
   const sitesDescription =
@@ -21,6 +27,11 @@ const GaleriaDeProjetos = ({ projetos }: GaleriaDeProjetosProps) => {
 
   return (
     <div className={styles.galeriaDeProjetos}>
+      <Head>
+        <title>
+          {plataform == "apps" ? "Aplicativos" : "Sites"} | Mayconsgs
+        </title>
+      </Head>
       <main className="content">
         <h1> {plataform == "apps" ? "Aplicativos" : "Sites"}</h1>
         <p>{plataform == "apps" ? appsDescription : sitesDescription}</p>
@@ -31,7 +42,7 @@ const GaleriaDeProjetos = ({ projetos }: GaleriaDeProjetosProps) => {
               <ProjectView
                 key={project.documentId}
                 id={project.documentId}
-                directory="apps"
+                directory={plataform}
                 name={project.name}
                 image={project.thumbnail}
                 description={project.description}
@@ -67,7 +78,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       },
     };
   } catch (error) {
-    console.log(error);
+    return {
+      props: {
+        projetos: [],
+      },
+    };
   }
 };
 

@@ -16,7 +16,7 @@
     }
   }
 
-  > img {
+  img {
     width: 100%;
     image-rendering: auto;
     border-radius: 0.8rem 0.8rem 0rem 0rem;
@@ -24,12 +24,20 @@
     cursor: pointer;
   }
 
-  .infos {
+  main {
     padding: 0.8rem;
 
-    > span {
+    strong {
       font: fonts.$font-body-bold;
-      width: fit-content;
+    }
+
+    strong:first-child + p {
+      margin-bottom: 1rem;
+    }
+
+    strong:first-child,
+    strong:first-child + p {
+      cursor: pointer;
     }
   }
 }

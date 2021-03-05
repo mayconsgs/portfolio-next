@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, FunctionComponent, useState } from "react";
 import {
   FiFacebook,
   FiGithub,
@@ -14,7 +14,7 @@ import TextBox from "../../components/TextBox";
 import { Firestore } from "../../services/firebase";
 import styles from "./style.module.scss";
 
-const Contatos = () => {
+const Contatos: FunctionComponent = () => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [assunto, setAssunto] = useState("");

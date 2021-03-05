@@ -4,8 +4,8 @@ import styles from "./style.module.scss";
 const Loading = () => {
   return (
     <div className={styles.loading}>
-      <div className={styles.circle} />
-      <div className={styles.circle + " " + styles.animation} />
+      <div />
+      <div />
     </div>
   );
 };

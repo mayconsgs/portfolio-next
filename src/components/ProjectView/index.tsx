@@ -26,14 +26,11 @@ const ProjectView: React.FC<ProjectViewInterface> = ({
   return (
     <article className={styles.projeto}>
       <img onClick={openProject} src={image} alt={name} />
-      <main className={styles.infos}>
-        <span style={{ cursor: "pointer" }} onClick={openProject}>
-          Nome do projeto:{" "}
-        </span>
-        <p style={{ cursor: "pointer" }} onClick={openProject}>
-          {name}
-        </p>
-        <span>Descrição do projeto:</span>
+      <main>
+        <strong onClick={openProject}>Nome do projeto:</strong>
+        <p onClick={openProject}>{name}</p>
+
+        <strong>Descrição do projeto:</strong>
         <p>{description}</p>
       </main>
     </article>

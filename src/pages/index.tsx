@@ -1,5 +1,6 @@
 import firebase from "firebase";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import RaisedButton from "../components/RaisedButton";
@@ -20,7 +21,17 @@ const Home = ({ apps, sites }: HomeProps) => {
 
   return (
     <div className={styles.inicio}>
-      <main className={`content ${styles.content}`}>
+      <Head>
+        <meta
+          name="description"
+          content="Portfólio de projetos do programador Maycon Santos."
+        />
+        <meta
+          name="keywords"
+          content="mayconsgs, programador, desenvolvedor, web, sistemas, Maycon, Santos, Flutter, React, JavaScript, Mobile, iOS, Android, Aplicativo"
+        />
+      </Head>
+      <main className={`${styles.content} content`}>
         <p>Olá, meu nome é Maycon Santos e este é meu Portfólio</p>
 
         <section className={styles.apps}>

@@ -6,6 +6,7 @@ import {
 } from "@icons-pack/react-simple-icons";
 import Axios from "axios";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import React, { useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
@@ -21,6 +22,10 @@ interface ProjectPageProps {
 }
 
 const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
+  if (!hasProject) {
+    return <PageNotFound />;
+  }
+
   const [indexImage, setIndexImage] = useState(0);
   const [viewImage, setViewImage] = useState(false);
 
@@ -49,8 +54,12 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
     setViewImage(true);
   }
 
-  return hasProject ? (
+  return (
     <div className={styles.projeto}>
+      <Head>
+        <title>{project.name} | Mayconsgs</title>
+        <meta name="description" content={project.description} />
+      </Head>
       <main className="content">
         <section className={styles.infos + " row"}>
           <img src={project.logo} className={styles.logo} alt={project.name} />
@@ -129,9 +138,11 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
 
       <section className={styles.openImage}>
         <div className={styles.content + " content"}>
-          <button className={styles.iconButton + " icon-button"} id="close">
+          <button
+            className={styles.iconButton + " icon-button " + styles.close}
+          >
             <label htmlFor="check-open-image">
-              <FiX size={40} />
+              <FiX size="4rem" />
             </label>
           </button>
 
@@ -139,7 +150,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
             className={styles.iconButton + " icon-button"}
             onClick={toLeftImage}
           >
-            <FiChevronLeft size={40} color="white" />
+            <FiChevronLeft size="4rem" />
           </button>
 
           <img alt={project.name} src={getImage()} />
@@ -148,13 +159,11 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
             className={styles.iconButton + " icon-button"}
             onClick={toRightImage}
           >
-            <FiChevronRight size={40} color="white" />
+            <FiChevronRight size="4rem" />
           </button>
         </div>
       </section>
     </div>
-  ) : (
-    <PageNotFound />
   );
 };
 
@@ -207,12 +216,11 @@ const getServerSideProps: GetServerSideProps = async (ctx) => {
       },
     };
   } catch (error) {
-    console.log(error);
     return {
       props: {
-        project: undefined,
-        hasProject: undefined,
-        readme: undefined,
+        project: {},
+        hasProject: false,
+        readme: "",
       },
     };
   }

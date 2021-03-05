@@ -19,7 +19,8 @@
     "**/*.ts",
     "**/*.tsx",
     "src/components/Slider/index.tsx",
-    "src/components/Header/index.tsx"
+    "src/components/Header/index.tsx",
+    "next.config.js"
   ],
   "exclude": ["node_modules"]
 }

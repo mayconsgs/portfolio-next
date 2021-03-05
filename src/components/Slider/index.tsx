@@ -35,7 +35,7 @@ const Slider = ({ projects, plataform, isOpen }: SliderProps) => {
         return (
           <Link
             key={project.documentId}
-            href={`/projetos/${plataform}/${project.documentId}`}
+            href={`/${plataform}/${project.documentId}`}
           >
             <figure style={isOpen ? { height: "18rem" } : undefined}>
               <img
