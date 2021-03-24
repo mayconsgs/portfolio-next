@@ -9,8 +9,8 @@ import { Firestore } from "../services/firebase";
 import styles from "./style.module.scss";
 
 interface HomeProps {
-  apps: [];
-  sites: [];
+  apps: ProjectsProps[];
+  sites: ProjectsProps[];
 }
 
 const Home = ({ apps, sites }: HomeProps) => {
@@ -114,6 +114,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   } catch (error) {
     console.log(error);
+    return {
+      props: {
+        apps: [],
+        sites: [],
+      },
+    };
   }
 };
 

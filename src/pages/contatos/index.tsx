@@ -37,11 +37,7 @@ const Contatos: FunctionComponent = () => {
       menssagem,
     };
 
-    console.log(Firestore);
-
     await Firestore.collection("mensagens").add(form);
-
-    console.log("Aoauba");
 
     setNotify({
       title: "",
