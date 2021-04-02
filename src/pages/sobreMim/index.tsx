@@ -15,18 +15,28 @@ import GraficoDeConhecimento from "../../components/GraficoDeConhecimento";
 import styles from "./style.module.scss";
 
 const SobreMim: FunctionComponent = () => {
+  const yersOld =
+    new Date(
+      new Date().getTime() - new Date("12/03/2001").getTime()
+    ).getUTCFullYear() - 1970;
+
   return (
     <div className={styles.sobreMim}>
       <Head>
         <title>Sobre min | Mayconsgs</title>
+        <meta
+          name="description"
+          content="Aqui você pode saber um pouco mais sobre mim, meus conhecimentos e feitos."
+        />
       </Head>
       <main className="content">
         <section className="historia">
           <h1>Sobre mim</h1>
 
           <p>
-            Olá, meu nome é Maycon Santos, tenho 18 anos e este é meu portfólio.
-            Lugar onde apresento meu trabalho como desenvolvedor web e mobile.
+            Olá, meu nome é Maycon Santos, tenho {yersOld} anos e este é meu
+            portfólio. Lugar onde apresento meu trabalho como desenvolvedor web
+            e mobile.
           </p>
 
           <p>
@@ -70,6 +80,18 @@ const SobreMim: FunctionComponent = () => {
             <GraficoDeConhecimento
               icon={Dart}
               technology="Dart:"
+              percent={95}
+            />
+            {/* eslint-disable-next-line */}
+            <GraficoDeConhecimento
+              icon={Javascript}
+              // eslint-disable-next-line no-script-url
+              technology="JavaScript:"
+              percent={95}
+            />
+            <GraficoDeConhecimento
+              icon={Sass}
+              technology="SCSS:"
               percent={90}
             />
             <GraficoDeConhecimento
@@ -77,37 +99,25 @@ const SobreMim: FunctionComponent = () => {
               technology="Flutter:"
               percent={85}
             />
-            {/* eslint-disable-next-line */}
             <GraficoDeConhecimento
-              icon={Javascript}
-              // eslint-disable-next-line no-script-url
-              technology="JavaScript:"
-              percent={90}
+              icon={ReactJs}
+              technology="React.js:"
+              percent={85}
             />
             <GraficoDeConhecimento
               icon={Typescript}
               technology="TypeScript:"
-              percent={70}
-            />
-            <GraficoDeConhecimento
-              icon={Sass}
-              technology="SCSS:"
               percent={80}
             />
             <GraficoDeConhecimento
               icon={NodeDotJs}
               technology="Node.js:"
-              percent={70}
-            />
-            <GraficoDeConhecimento
-              icon={ReactJs}
-              technology="React.js:"
               percent={80}
             />
             <GraficoDeConhecimento
               icon={Firebase}
               technology="Firebase:"
-              percent={65}
+              percent={75}
             />
           </div>
         </section>

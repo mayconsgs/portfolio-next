@@ -1,10 +1,10 @@
 import firebaseClient from "firebase/app";
 import "firebase/firestore";
 
-let firebase: firebaseClient.app.App;
+let db: firebaseClient.firestore.Firestore;
 
 if (!firebaseClient.apps.length) {
-  firebase = firebaseClient.initializeApp({
+  const firebase = firebaseClient.initializeApp({
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
     databaseURL: process.env.REACT_APP_DATABASE_URL,
@@ -14,17 +14,19 @@ if (!firebaseClient.apps.length) {
     appId: process.env.REACT_APP_APP_ID,
     measurementId: process.env.REACT_APP_MEASUREMENT_ID,
   });
+
+  db = firebase.firestore();
+
+  if (process.env.NODE_ENV === "development") {
+    db.settings({
+      host: "localhost:8080",
+      ssl: false,
+    });
+  }
 } else {
-  firebase = firebaseClient.app();
+  const firebase = firebaseClient.app();
+
+  db = firebase.firestore();
 }
-
-let db = firebase.firestore();
-
-// if (process.env.NODE_ENV === "development") {
-//   db.settings({
-//     host: "localhost:8080",
-//     ssl: false,
-//   });
-// }
 
 export const Firestore = db;

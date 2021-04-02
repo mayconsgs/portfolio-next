@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { FormEvent, FunctionComponent, useState } from "react";
 import {
   FiFacebook,
@@ -30,30 +31,33 @@ const Contatos: FunctionComponent = () => {
   async function sendMessage(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const form = {
-      nome,
-      email,
-      assunto,
-      menssagem,
-    };
+    try {
+      await Firestore.collection("message").add({
+        nome,
+        email,
+        assunto,
+        menssagem,
+      });
 
-    console.log(Firestore);
+      setNotify({
+        title: "",
+        message: "Mensagem encaminhada. Em breve você receberá um retorno.",
+        visible: true,
+        status: "ok",
+      });
 
-    await Firestore.collection("mensagens").add(form);
-
-    console.log("Aoauba");
-
-    setNotify({
-      title: "",
-      message: "Mensagem encaminhada. Em breve você receberá um retorno.",
-      visible: true,
-      status: "ok",
-    });
-
-    setNome("");
-    setEmail("");
-    setAssunto("");
-    setMenssagem("");
+      setNome("");
+      setEmail("");
+      setAssunto("");
+      setMenssagem("");
+    } catch (error) {
+      setNotify({
+        title: "",
+        message: error.message,
+        visible: true,
+        status: "error",
+      });
+    }
   }
 
   function invalidForm(e: FormEvent<HTMLFormElement>) {
@@ -69,6 +73,13 @@ const Contatos: FunctionComponent = () => {
 
   return (
     <div className={styles.contatos}>
+      <Head>
+        <meta
+          name="description"
+          content="Envie-me um mensagem ou siga-me nas redes sociais"
+        />
+        <title>Contatos | Mayconsgs</title>
+      </Head>
       <main className={`${styles.content} content row`}>
         <section className={styles.links}>
           <div className={styles.conteudo}>
@@ -78,11 +89,11 @@ const Contatos: FunctionComponent = () => {
               href="mailto:maycon.s.santos44@gmail.com"
             >
               <FiMail size="3rem" />
-              maycon.s.santos44@gmail.com
+              E-mail
             </a>
             <a className={styles.socialItem} href="callto:11979967858">
               <FiPhone size="3rem" />
-              (11) 97996-7858
+              Celular
             </a>
             <a
               className={styles.socialItem}
@@ -90,15 +101,15 @@ const Contatos: FunctionComponent = () => {
               target="blank"
             >
               <FiFacebook size="3rem" />
-              facebook.com/mayconsgs
+              Facebook
             </a>
             <a
               className={styles.socialItem}
-              href="http://instagram.com"
+              href="http://instagram.com/mayconsgs"
               target="blank"
             >
               <FiInstagram size="3rem" />
-              Ainda não disponivel
+              Instagram
             </a>
             <a
               className={styles.socialItem}
@@ -106,7 +117,7 @@ const Contatos: FunctionComponent = () => {
               target="blank"
             >
               <FiLinkedin size="3rem" />
-              linkedin.com/in/mayconsgs
+              Linkedin
             </a>
             <a
               className={styles.socialItem}
@@ -114,7 +125,7 @@ const Contatos: FunctionComponent = () => {
               target="blank"
             >
               <FiGithub size="3rem" />
-              github.com/mayconsgs
+              GitHub
             </a>
           </div>
         </section>

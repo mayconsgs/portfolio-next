@@ -9,8 +9,8 @@ import { Firestore } from "../services/firebase";
 import styles from "./style.module.scss";
 
 interface HomeProps {
-  apps: [];
-  sites: [];
+  apps: ProjectsProps[];
+  sites: ProjectsProps[];
 }
 
 const Home = ({ apps, sites }: HomeProps) => {
@@ -26,12 +26,9 @@ const Home = ({ apps, sites }: HomeProps) => {
           name="description"
           content="Portfólio de projetos do programador Maycon Santos."
         />
-        <meta
-          name="keywords"
-          content="mayconsgs, programador, desenvolvedor, web, sistemas, Maycon, Santos, Flutter, React, JavaScript, Mobile, iOS, Android, Aplicativo"
-        />
+        <title>Inicio | Mayconsgs</title>
       </Head>
-      <main className={`${styles.content} content`}>
+      <main className={`content ${styles.content}`}>
         <p>Olá, meu nome é Maycon Santos e este é meu Portfólio</p>
 
         <section className={styles.apps}>
@@ -79,27 +76,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     let appsDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[];
     let sitesDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[];
 
-    await Firestore.collection("apps")
-      .get()
-      .then((appsDocuments) => {
-        if (!appsDocuments.empty) appsDocumentsSnapshot = appsDocuments.docs;
-      });
+    const appsDocuments = await Firestore.collection("apps").get();
+    if (!appsDocuments.empty) appsDocumentsSnapshot = appsDocuments.docs;
 
-    const apps = appsDocumentsSnapshot.map((e) => {
-      const project: ProjectsProps = {
-        documentId: e.id,
-        name: e.data().name,
-        thumbnail: e.data().thumbnail,
-      };
+    const apps = appsDocumentsSnapshot.map((e) => ({
+      documentId: e.id,
+      ...e.data(),
+    }));
 
-      return project;
-    });
-
-    await Firestore.collection("sites")
-      .get()
-      .then((sitesDocuments) => {
-        if (!sitesDocuments.empty) sitesDocumentsSnapshot = sitesDocuments.docs;
-      });
+    const sitesDocuments = await Firestore.collection("sites").get();
+    if (!sitesDocuments.empty) sitesDocumentsSnapshot = sitesDocuments.docs;
 
     const sites = sitesDocumentsSnapshot.map((e) => ({
       documentId: e.id,
@@ -113,7 +99,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       },
     };
   } catch (error) {
-    console.log(error);
+    return {
+      props: {
+        apps: [],
+        sites: [],
+      },
+    };
   }
 };
 

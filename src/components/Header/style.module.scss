@@ -39,13 +39,6 @@
     width: 100%;
     position: relative;
 
-    .logo {
-      height: 4rem;
-      margin-top: 0.8rem;
-      margin-bottom: 0.8rem;
-      fill: var(--color-primary);
-    }
-
     nav {
       min-width: 60rem;
       margin-left: auto;
@@ -108,13 +101,17 @@
         }
       }
     }
+
+    .logo {
+      height: 4rem;
+    }
+
     .logoPort {
       display: flex;
       align-items: center;
-
-      img {
-        height: 4rem;
-      }
+      margin-top: 0.8rem;
+      margin-bottom: 0.8rem;
+      fill: var(--color-primary);
 
       @media screen and (max-width: measures.$max-to-mobile) {
         margin-left: auto;

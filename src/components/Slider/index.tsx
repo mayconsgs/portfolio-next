@@ -11,8 +11,9 @@ interface PlataformsInterface {
 
 export interface ProjectsProps {
   documentId: string;
-  thumbnail?: string;
   name: string;
+
+  thumbnail?: string;
   description?: string;
   plataforms?: PlataformsInterface;
   images?: string[];
@@ -39,6 +40,7 @@ const Slider = ({ projects, plataform, isOpen }: SliderProps) => {
           >
             <figure style={isOpen ? { height: "18rem" } : undefined}>
               <img
+                loading="lazy"
                 src={project.thumbnail}
                 alt={project.name}
                 style={isOpen ? { height: "18rem" } : undefined}
