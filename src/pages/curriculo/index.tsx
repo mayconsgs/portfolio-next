@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { FunctionComponent } from "react";
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 import styles from "./style.module.scss";
@@ -5,6 +6,13 @@ import styles from "./style.module.scss";
 const Curriculo: FunctionComponent = () => {
   return (
     <div className={styles.curriculo}>
+      <Head>
+        <meta
+          name="description"
+          content="Currículo de Maycon Santos, desenvolvedor de aplicativos e sites."
+        />
+        <title>Currículo | Mayconsgs</title>
+      </Head>
       <main className="content">
         <div className={styles.topcs}>
           <section>

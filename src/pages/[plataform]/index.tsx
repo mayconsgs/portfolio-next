@@ -31,6 +31,10 @@ const GaleriaDeProjetos = ({ projetos }: GaleriaDeProjetosProps) => {
         <title>
           {plataform == "apps" ? "Aplicativos" : "Sites"} | Mayconsgs
         </title>
+        <meta
+          name="description"
+          content={plataform == "apps" ? appsDescription : sitesDescription}
+        />
       </Head>
       <main className="content">
         <h1> {plataform == "apps" ? "Aplicativos" : "Sites"}</h1>
@@ -60,17 +64,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     let projetos: ProjectsProps[];
     const plataform = ctx.params.plataform as string;
 
-    await Firestore.collection(plataform)
-      .get()
-      .then((listaDeProjetos) => {
-        if (!listaDeProjetos.empty)
-          projetos = listaDeProjetos.docs.map((e) => ({
-            documentId: e.id,
-            thumbnail: e.data().thumbnail,
-            name: e.data().name,
-            description: e.data().description,
-          }));
-      });
+    const listaDeProjetos = await Firestore.collection(plataform).get();
+    projetos = listaDeProjetos.docs.map((e) => ({
+      ...e.data(),
+      documentId: e.id,
+      name: e.data().name,
+    }));
 
     return {
       props: {

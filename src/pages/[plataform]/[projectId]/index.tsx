@@ -62,7 +62,12 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
       </Head>
       <main className="content">
         <section className={styles.infos + " row"}>
-          <img src={project.logo} className={styles.logo} alt={project.name} />
+          <img
+            loading="lazy"
+            src={project.logo}
+            className={styles.logo}
+            alt={project.name}
+          />
           <div className={styles.dados}>
             <h1>{project.name}</h1>
             <p>{project.description}</p>
@@ -111,6 +116,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
           {project.images.map((imagem, index) => {
             return (
               <img
+                loading="lazy"
                 alt={project.name}
                 key={index}
                 src={imagem}
@@ -153,7 +159,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
             <FiChevronLeft size="4rem" />
           </button>
 
-          <img alt={project.name} src={getImage()} />
+          <img loading="lazy" alt={project.name} src={getImage()} />
 
           <button
             className={styles.iconButton + " icon-button"}
@@ -173,28 +179,20 @@ const getServerSideProps: GetServerSideProps = async (ctx) => {
     const projectId = ctx.params.projectId as string;
 
     let project: ProjectsProps;
-    let hasProject: boolean;
+
     let readme: string;
 
-    await Firestore.collection(plataform)
+    const dadosDaconsulta = await Firestore.collection(plataform)
       .doc(projectId)
-      .get()
-      .then((dadosDaconsulta) => {
-        if (dadosDaconsulta.exists) {
-          project = {
-            documentId: dadosDaconsulta.id,
-            description: dadosDaconsulta.data().description,
-            images: dadosDaconsulta.data().images,
-            logo: dadosDaconsulta.data().logo,
-            name: dadosDaconsulta.data().name,
-            plataforms: dadosDaconsulta.data().plataforms,
-          };
-
-          hasProject = true;
-        } else {
-          hasProject = false;
-        }
-      });
+      .get();
+    project = {
+      documentId: dadosDaconsulta.id,
+      description: dadosDaconsulta.data().description,
+      images: dadosDaconsulta.data().images,
+      logo: dadosDaconsulta.data().logo,
+      name: dadosDaconsulta.data().name,
+      plataforms: dadosDaconsulta.data().plataforms,
+    };
 
     if (project.plataforms.git !== undefined) {
       const start = project.plataforms.git.indexOf("github.com/") + 11;
@@ -211,7 +209,7 @@ const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
       props: {
         project,
-        hasProject,
+        hasProject: true,
         readme,
       },
     };

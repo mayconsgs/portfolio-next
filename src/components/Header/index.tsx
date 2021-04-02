@@ -40,7 +40,11 @@ const Header = () => {
 
         <Link href="/">
           <a className={styles.logoPort}>
-            <img className={styles.logo} src="/assets/logo.svg" alt="" />
+            <img
+              className={styles.logo}
+              src="assets/logo-light.svg"
+              alt="mayconsgs"
+            />
           </a>
         </Link>
 

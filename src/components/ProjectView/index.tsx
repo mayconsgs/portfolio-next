@@ -25,7 +25,7 @@ const ProjectView: React.FC<ProjectViewInterface> = ({
 
   return (
     <article className={styles.projeto}>
-      <img onClick={openProject} src={image} alt={name} />
+      <img loading="lazy" onClick={openProject} src={image} alt={name} />
       <main>
         <strong onClick={openProject}>Nome do projeto:</strong>
         <p onClick={openProject}>{name}</p>
