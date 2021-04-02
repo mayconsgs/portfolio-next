@@ -24,7 +24,9 @@ if (!firebaseClient.apps.length) {
     });
   }
 } else {
-  db = firebaseClient.app().firestore();
+  const firebase = firebaseClient.app();
+
+  db = firebase.firestore();
 }
 
 export const Firestore = db;

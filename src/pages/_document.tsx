@@ -6,7 +6,13 @@ class MyDocument extends Document {
       <Html lang="pt-br">
         <Head>
           <link rel="icon" id="icon-webSite" href="favicon.svg" />
+
+          <meta
+            name="keywords"
+            content="mayconsgs, programador, desenvolvedor, web, sistemas, Maycon, Santos, Flutter, React, JavaScript, Mobile, iOS, Android, Aplicativo"
+          />
         </Head>
+
         <body>
           <Main />
           <NextScript />
