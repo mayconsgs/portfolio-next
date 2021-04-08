@@ -7,10 +7,10 @@ const TextArea: React.FC<TextareaHTMLAttributes<HTMLTextAreaElement>> = ({
   return (
     <div className={styles.textArea}>
       <textarea {...rest} />
-      <div className="bottom border" />
-      <div className="left border" />
-      <div className="top border" />
-      <div className="right border" />
+      <div className={`${styles.bottom} ${styles.border}`} />
+      <div className={`${styles.left} ${styles.border}`} />
+      <div className={`${styles.top} ${styles.border}`} />
+      <div className={`${styles.right} ${styles.border}`} />
     </div>
   );
 };

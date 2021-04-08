@@ -7,10 +7,10 @@ const TextBox: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
   return (
     <div className={styles.textBox}>
       <input {...rest} className={`text ${rest.className ?? ""}`} />
-      <div className="bottom border" />
-      <div className="left border" />
-      <div className="top border" />
-      <div className="right border" />
+      <div className={`${styles.bottom} ${styles.border}`} />
+      <div className={`${styles.left} ${styles.border}`} />
+      <div className={`${styles.top} ${styles.border}`} />
+      <div className={`${styles.right} ${styles.border}`} />
     </div>
   );
 };

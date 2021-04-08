@@ -11,10 +11,10 @@ const RaisedButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
       className={`${styles.raisedButton} ${rest.className ?? ""}`}
     >
       {children}
-      <div className="bottom border" />
-      <div className="left border" />
-      <div className="top border" />
-      <div className="right border" />
+      <div className={`${styles.bottom} ${styles.border}`} />
+      <div className={`${styles.left} ${styles.border}`} />
+      <div className={`${styles.top} ${styles.border}`} />
+      <div className={`${styles.right} ${styles.border}`} />
     </button>
   );
 };
