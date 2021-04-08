@@ -8,6 +8,35 @@
   position: relative;
   width: fit-content;
 
+  &.active {
+    a {
+      color: var(--color-secondary);
+      &::after {
+        $anim-id: anim-#{unique-id()};
+
+        content: "";
+        height: 0.2rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-radius: 0.1rem;
+        animation: $anim-id 0.4s forwards;
+        background-color: var(--color-secondary);
+        width: 100%;
+
+        @keyframes #{$anim-id} {
+          from {
+            width: 0;
+          }
+
+          to {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
   a {
     color: var(--color-text);
     @media (any-hover: hover) {
@@ -27,15 +56,17 @@
         transition: 0.3s;
 
         &::after {
+          $anim-id: anim-#{unique-id()};
+
           content: "";
           height: 0.2rem;
           position: absolute;
           bottom: 0;
           left: 0;
           border-radius: 0.1rem;
-          animation: anim 0.4s forwards;
+          animation: $anim-id 0.4s forwards;
 
-          @keyframes anim {
+          @keyframes #{$anim-id} {
             from {
               width: 0;
             }
