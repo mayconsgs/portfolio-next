@@ -18,42 +18,29 @@
       margin: 1.6rem;
     }
 
-    svg#svg-erro {
-      max-height: 60vh;
-      max-width: 100rem;
-      width: calc(100% - 1.6rem * 2);
-      margin: 1.6rem;
-
-      path#Caminho_22,
-      path#Caminho_23,
-      path#Caminho_33 {
-        fill: var(--color-primary);
+    div.code {
+      font-size: 24pt;
+      margin-bottom: 5rem;
+      @mixin space {
+        &::before {
+          content: " ";
+        }
       }
 
-      path#Caminho_21,
-      path#Caminho_42,
-      path#Caminho_45,
-      path#Caminho_47,
-      path#Caminho_49,
-      path#Caminho_51,
-      path#Caminho_54,
-      path#Caminho_56,
-      path#Caminho_58,
-      ellipse#Elipse_9,
-      ellipse#Elipse_10,
-      path#Caminho_60 {
-        fill: var(--color-secondary);
+      .string {
+        color: rgb(255, 228, 106);
+        @include space();
       }
-
-      path#Caminho_61,
-      circle#Elipse_14,
-      circle#Elipse_15 {
-        fill: white;
+      .key {
+        color: var(--color-primary);
+        margin-left: 2rem;
       }
-
-      circle#Elipse_16,
-      circle#Elipse_17 {
-        fill: var(--color-text);
+      .number {
+        color: var(--color-secondary);
+        @include space();
+      }
+      .operator {
+        color: rgb(253, 103, 216);
       }
     }
 

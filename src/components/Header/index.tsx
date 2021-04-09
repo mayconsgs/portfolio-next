@@ -42,7 +42,7 @@ const Header = () => {
           <a className={styles.logoPort}>
             <img
               className={styles.logo}
-              src="assets/logo-light.svg"
+              src="/assets/logo-light.svg"
               alt="mayconsgs"
             />
           </a>
