@@ -1,8 +1,15 @@
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import Loading from "../components/Loading";
+import LoadingTopBar from "../components/LoadingTopBar";
 import "../styles/global.scss";
+
+const Loading = dynamic(import("../components/LoadingCircle"), {
+  loading: () => <LoadingTopBar />,
+});
+const Header = dynamic(import("../components/Header"), {
+  loading: () => <LoadingTopBar />,
+});
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

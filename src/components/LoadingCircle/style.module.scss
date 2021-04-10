@@ -10,9 +10,7 @@
     width: 5rem;
     border-radius: 50%;
     border: 2px solid var(--color-primary);
-  }
 
-  > div:last-child {
     $id: unique-id();
     border-top: 3px solid var(--color-secondary);
     animation: $id 1s infinite linear;

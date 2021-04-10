@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 import styles from "./style.module.scss";
 
 const RaisedButton: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({

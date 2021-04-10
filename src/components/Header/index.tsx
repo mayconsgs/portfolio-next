@@ -1,8 +1,26 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import MenuItem from "../MenuItem/index";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import LoadingTopBar from "../LoadingTopBar";
 import styles from "./style.module.scss";
+
+const Link = dynamic(import("next/link"), {
+  loading: () => <LoadingTopBar />,
+});
+const MenuItem = dynamic(import("../MenuItem/index"), {
+  loading: () => <LoadingTopBar />,
+});
+const FiMenu = dynamic(
+  import("react-icons/fi").then((components) => components.FiMenu),
+  {
+    loading: () => <LoadingTopBar />,
+  }
+);
+const FiX = dynamic(
+  import("react-icons/fi").then((components) => components.FiX),
+  {
+    loading: () => <LoadingTopBar />,
+  }
+);
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,7 +53,7 @@ const Header = () => {
           className={`${styles.menuButton} icon-button`}
           onClick={onChangeMenu}
         >
-          {menuOpen ? <FiX size="4rem" /> : <FiMenu size="4rem" />}
+          {menuOpen ? <FiX /> : <FiMenu />}
         </button>
 
         <Link href="/">

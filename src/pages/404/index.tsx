@@ -1,8 +1,14 @@
-import Head from "next/head";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import React from "react";
-import RaisedButton from "../../components/RaisedButton";
+import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
+
+const Head = dynamic(import("next/head"), {
+  loading: () => <LoadingTopBar />,
+});
+const RaisedButton = dynamic(import("../../components/RaisedButton"), {
+  loading: () => <LoadingTopBar />,
+});
 
 export default function PageNotFound() {
   const router = useRouter();
