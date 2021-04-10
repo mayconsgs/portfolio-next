@@ -1,5 +1,5 @@
-import Head from "next/head";
-import React, { FormEvent, FunctionComponent, useState } from "react";
+import dynamic from "next/dynamic";
+import { FormEvent, FunctionComponent, useState } from "react";
 import {
   FiFacebook,
   FiGithub,
@@ -8,12 +8,25 @@ import {
   FiMail,
   FiPhone,
 } from "react-icons/fi";
-import PopUp from "../../components/PopUp";
-import RaisedButton from "../../components/RaisedButton";
-import TextArea from "../../components/TextArea";
-import TextBox from "../../components/TextBox";
+import LoadingTopBar from "../../components/LoadingTopBar";
 import { Firestore } from "../../services/firebase";
 import styles from "./style.module.scss";
+
+const Head = dynamic(import("next/head"), {
+  loading: () => <LoadingTopBar />,
+});
+const PopUp = dynamic(import("../../components/PopUp"), {
+  loading: () => <LoadingTopBar />,
+});
+const RaisedButton = dynamic(import("../../components/RaisedButton"), {
+  loading: () => <LoadingTopBar />,
+});
+const TextArea = dynamic(import("../../components/TextArea"), {
+  loading: () => <LoadingTopBar />,
+});
+const TextBox = dynamic(import("../../components/TextBox"), {
+  loading: () => <LoadingTopBar />,
+});
 
 const Contatos: FunctionComponent = () => {
   const [nome, setNome] = useState("");
@@ -31,33 +44,34 @@ const Contatos: FunctionComponent = () => {
   async function sendMessage(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    try {
-      await Firestore.collection("message").add({
+    await Firestore.collection("message")
+      .add({
         nome,
         email,
         assunto,
         menssagem,
-      });
+      })
+      .then((reference) => {
+        setNotify({
+          title: "",
+          message: "Mensagem encaminhada. Em breve você receberá um retorno.",
+          visible: true,
+          status: "ok",
+        });
 
-      setNotify({
-        title: "",
-        message: "Mensagem encaminhada. Em breve você receberá um retorno.",
-        visible: true,
-        status: "ok",
+        setNome("");
+        setEmail("");
+        setAssunto("");
+        setMenssagem("");
+      })
+      .catch((error) => {
+        setNotify({
+          title: "",
+          message: "Algo deu errado ao enviar a mensagem",
+          visible: true,
+          status: "error",
+        });
       });
-
-      setNome("");
-      setEmail("");
-      setAssunto("");
-      setMenssagem("");
-    } catch (error) {
-      setNotify({
-        title: "",
-        message: error.message,
-        visible: true,
-        status: "error",
-      });
-    }
   }
 
   function invalidForm(e: FormEvent<HTMLFormElement>) {

@@ -6,14 +6,23 @@ import {
 } from "@icons-pack/react-simple-icons";
 import Axios from "axios";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
-import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
-import ReactMarkdown from "react-markdown";
+import LoadingTopBar from "../../../components/LoadingTopBar";
 import { ProjectsProps } from "../../../components/Slider";
 import { Firestore } from "../../../services/firebase";
-import PageNotFound from "../../404";
 import styles from "./style.module.scss";
+
+const Head = dynamic(import("next/head"), {
+  loading: () => <LoadingTopBar />,
+});
+const ReactMarkdown = dynamic(import("react-markdown"), {
+  loading: () => <LoadingTopBar />,
+});
+const PageNotFound = dynamic(import("../../404"), {
+  loading: () => <LoadingTopBar />,
+});
 
 interface ProjectPageProps {
   project: ProjectsProps;

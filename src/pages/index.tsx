@@ -1,12 +1,22 @@
 import firebase from "firebase";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import RaisedButton from "../components/RaisedButton";
-import Slider, { ProjectsProps } from "../components/Slider";
+import { useState } from "react";
+import LoadingTopBar from "../components/LoadingTopBar";
+import { ProjectsProps } from "../components/Slider";
 import { Firestore } from "../services/firebase";
 import styles from "./style.module.scss";
+
+const Head = dynamic(import("next/head"), {
+  loading: () => <LoadingTopBar />,
+});
+const RaisedButton = dynamic(import("../components/RaisedButton"), {
+  loading: () => <LoadingTopBar />,
+});
+const Slider = dynamic(import("../components/Slider"), {
+  loading: () => <LoadingTopBar />,
+});
 
 interface HomeProps {
   apps: ProjectsProps[];

@@ -1,12 +1,20 @@
 import { GetServerSideProps } from "next";
-import Head from "next/head";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import React from "react";
-import ProjectView from "../../components/ProjectView";
+import LoadingTopBar from "../../components/LoadingTopBar";
 import { ProjectsProps } from "../../components/Slider";
 import { Firestore } from "../../services/firebase";
-import PageNotFound from "../404";
 import styles from "./style.module.scss";
+
+const PageNotFound = dynamic(import("../404"), {
+  loading: () => <LoadingTopBar />,
+});
+const Head = dynamic(import("next/head"), {
+  loading: () => <LoadingTopBar />,
+});
+const ProjectView = dynamic(import("../../components/ProjectView"), {
+  loading: () => <LoadingTopBar />,
+});
 
 interface GaleriaDeProjetosProps {
   projetos: ProjectsProps[];

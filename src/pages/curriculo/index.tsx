@@ -1,6 +1,10 @@
-import Head from "next/head";
-import React, { FunctionComponent } from "react";
+const Head = dynamic(import("next/head"), {
+  loading: () => <LoadingTopBar />,
+});
+import dynamic from "next/dynamic";
+import { FunctionComponent } from "react";
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
+import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
 
 const Curriculo: FunctionComponent = () => {

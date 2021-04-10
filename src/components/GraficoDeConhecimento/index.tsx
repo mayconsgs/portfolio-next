@@ -1,5 +1,4 @@
 import { Icon } from "@icons-pack/react-simple-icons";
-import React from "react";
 import styles from "./style.module.scss";
 
 interface Conhecimento {
