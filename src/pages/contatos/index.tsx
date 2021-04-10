@@ -31,33 +31,34 @@ const Contatos: FunctionComponent = () => {
   async function sendMessage(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    try {
-      await Firestore.collection("message").add({
+    await Firestore.collection("message")
+      .add({
         nome,
         email,
         assunto,
         menssagem,
-      });
+      })
+      .then((reference) => {
+        setNotify({
+          title: "",
+          message: "Mensagem encaminhada. Em breve você receberá um retorno.",
+          visible: true,
+          status: "ok",
+        });
 
-      setNotify({
-        title: "",
-        message: "Mensagem encaminhada. Em breve você receberá um retorno.",
-        visible: true,
-        status: "ok",
+        setNome("");
+        setEmail("");
+        setAssunto("");
+        setMenssagem("");
+      })
+      .catch((error) => {
+        setNotify({
+          title: "",
+          message: "Algo deu errado ao enviar a mensagem",
+          visible: true,
+          status: "error",
+        });
       });
-
-      setNome("");
-      setEmail("");
-      setAssunto("");
-      setMenssagem("");
-    } catch (error) {
-      setNotify({
-        title: "",
-        message: error.message,
-        visible: true,
-        status: "error",
-      });
-    }
   }
 
   function invalidForm(e: FormEvent<HTMLFormElement>) {
