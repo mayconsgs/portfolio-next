@@ -8,11 +8,23 @@ import {
   Sass,
   Typescript,
 } from "@icons-pack/react-simple-icons";
-import Head from "next/head";
-import Link from "next/link";
+import dynamic from "next/dynamic";
 import React, { FunctionComponent } from "react";
-import GraficoDeConhecimento from "../../components/GraficoDeConhecimento";
+import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
+
+const Head = dynamic(import("next/head"), {
+  loading: () => <LoadingTopBar />,
+});
+const Link = dynamic(import("next/link"), {
+  loading: () => <LoadingTopBar />,
+});
+const GraficoDeConhecimento = dynamic(
+  import("../../components/GraficoDeConhecimento"),
+  {
+    loading: () => <LoadingTopBar />,
+  }
+);
 
 const SobreMim: FunctionComponent = () => {
   const yersOld =

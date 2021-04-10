@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes } from "react";
+import { TextareaHTMLAttributes } from "react";
 import styles from "./style.module.scss";
 
 const TextArea: React.FC<TextareaHTMLAttributes<HTMLTextAreaElement>> = ({

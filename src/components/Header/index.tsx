@@ -1,8 +1,15 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import MenuItem from "../MenuItem/index";
+import LoadingTopBar from "../LoadingTopBar";
 import styles from "./style.module.scss";
+
+const Link = dynamic(import("next/link"), {
+  loading: () => <LoadingTopBar />,
+});
+const MenuItem = dynamic(import("../MenuItem/index"), {
+  loading: () => <LoadingTopBar />,
+});
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
