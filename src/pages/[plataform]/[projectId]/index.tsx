@@ -81,7 +81,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
             <h1>{project.name}</h1>
             <p>{project.description}</p>
             <div className={styles.plataforms}>
-              {project.plataforms.git !== undefined ? (
+              {project.plataforms.git !== "" ? (
                 <a
                   href={project.plataforms.git}
                   target="_blank"
@@ -90,7 +90,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
                   <Github size="3.5rem" />
                 </a>
               ) : null}
-              {project.plataforms.play !== undefined ? (
+              {project.plataforms.play !== "" ? (
                 <a
                   href={project.plataforms.play}
                   target="_blank"
@@ -99,7 +99,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
                   <Googleplay size="3.5rem" />
                 </a>
               ) : null}
-              {project.plataforms.app !== undefined ? (
+              {project.plataforms.app !== "" ? (
                 <a
                   href={project.plataforms.app}
                   target="_blank"
@@ -108,7 +108,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
                   <Appstore size="3.5rem" />
                 </a>
               ) : null}
-              {project.plataforms.web !== undefined ? (
+              {project.plataforms.web !== "" ? (
                 <a
                   href={project.plataforms.web}
                   target="_blank"
