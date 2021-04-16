@@ -114,6 +114,20 @@
       background-color: var(--color-background);
       border-radius: 0.8rem;
       padding: 1.6rem;
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+        height: 0.5rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--color-secondary);
+        border-radius: 0.5rem;
+      }
     }
 
     blockquote {
@@ -153,7 +167,6 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s, visibility 0.5s;
-    background-color: var(--color-primary-dark-50);
     backdrop-filter: blur(measures.$blur);
 
     .content {

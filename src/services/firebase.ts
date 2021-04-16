@@ -17,11 +17,11 @@ if (!firebaseClient.apps.length) {
 
   db = firebase.firestore();
 
-  if (process.env.NODE_ENV === "development") {
-    db.useEmulator("localhost", 8080);
-  } else if (process.env.NODE_ENV === "test") {
-    db.useEmulator("localhost", 8080);
-  }
+  // if (process.env.NODE_ENV === "development") {
+  //   db.useEmulator("localhost", 8080);
+  // } else if (process.env.NODE_ENV === "test") {
+  //   db.useEmulator("localhost", 8080);
+  // }
 } else {
   const firebase = firebaseClient.app();
 
