@@ -64,6 +64,10 @@
     margin-bottom: 2.4rem;
 
     .dados {
+      @media screen and (max-width: measures.$max-to-mobile) {
+        margin-top: 1.6rem;
+      }
+
       h1 {
         margin-top: 0rem;
       }
@@ -167,6 +171,7 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s, visibility 0.5s;
+    background: rgba(15, 17, 17, 0.6);
     backdrop-filter: blur(measures.$blur);
 
     .content {
@@ -195,12 +200,6 @@
         box-shadow: 0rem 0rem 5rem #00000050;
         margin: 2rem;
       }
-    }
-  }
-
-  @media screen and (max-width: measures.$max-to-mobile) {
-    .infos .dados {
-      margin-top: 1.6rem;
     }
   }
 }
