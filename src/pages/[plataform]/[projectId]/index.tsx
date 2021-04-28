@@ -71,12 +71,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
       </Head>
       <main className="content">
         <section className={styles.infos + " row"}>
-          <img
-            loading="lazy"
-            src={project.logo}
-            className={styles.logo}
-            alt={project.name}
-          />
+          <img src={project.logo} className={styles.logo} alt={project.name} />
           <div className={styles.dados}>
             <h1>{project.name}</h1>
             <p>{project.description}</p>
@@ -125,7 +120,6 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
           {project.images.map((imagem, index) => {
             return (
               <img
-                loading="lazy"
                 alt={project.name}
                 key={index}
                 src={imagem}
@@ -168,7 +162,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
             <FiChevronLeft size="4rem" />
           </button>
 
-          <img loading="lazy" alt={project.name} src={getImage()} />
+          <img alt={project.name} src={getImage()} />
 
           <button
             className={styles.iconButton + " icon-button"}
