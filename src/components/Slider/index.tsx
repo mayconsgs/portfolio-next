@@ -39,7 +39,6 @@ const Slider = ({ projects, plataform, isOpen }: SliderProps) => {
           >
             <figure style={isOpen ? { height: "18rem" } : undefined}>
               <img
-                loading="lazy"
                 src={project.thumbnail}
                 alt={project.name}
                 style={isOpen ? { height: "18rem" } : undefined}
