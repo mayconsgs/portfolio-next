@@ -8,6 +8,11 @@ import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
 
 const Curriculo: FunctionComponent = () => {
+  const yersOld =
+    new Date(
+      new Date().getTime() - new Date("12/03/2001").getTime()
+    ).getUTCFullYear() - 1970;
+
   return (
     <div className={styles.curriculo}>
       <Head>
@@ -23,7 +28,7 @@ const Curriculo: FunctionComponent = () => {
             <h1>Maycon Santos </h1>
             <h2>Dados Pessoais </h2>
             <ul>
-              <li>Idade: 18 anos</li>
+              <li>Idade: {yersOld} anos</li>
               <li>Estado civil: Solteiro</li>
               <li>Endereço: R. Salvador, Mauá – SP, 09381-030</li>
             </ul>
