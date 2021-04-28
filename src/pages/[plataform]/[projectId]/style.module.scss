@@ -16,6 +16,8 @@
     transition: 1s;
     overflow-x: auto;
     overflow-y: hidden;
+    padding: 1.5rem;
+    height: 50rem;
     mask-image: linear-gradient(
       to right,
       transparent,
@@ -23,8 +25,22 @@
       white calc(100% - 0.5rem),
       transparent
     );
-    height: 30rem;
-    padding: 1.5rem;
+
+    @media screen and (max-width: 1080px) {
+      height: 45rem;
+    }
+
+    @media screen and (max-width: 860px) {
+      height: 35rem;
+    }
+
+    @media screen and (max-width: 720px) {
+      height: 25rem;
+    }
+
+    @media screen and (max-width: 420px) {
+      height: 20rem;
+    }
 
     &::-webkit-scrollbar {
       height: 1rem;
@@ -136,11 +152,8 @@
 
     blockquote {
       background-color: var(--color-background);
-
       padding: 8px;
-
       border-left: 5px solid var(--color-secondary);
-
       border-radius: 4px;
     }
 

@@ -42,42 +42,44 @@ const SobreMim: FunctionComponent = () => {
         />
       </Head>
       <main className="content">
-        <section className="historia">
+        <section>
           <h1>Sobre mim</h1>
 
           <p>
             Olá, meu nome é Maycon Santos, tenho {yersOld} anos e este é meu
-            portfólio. Lugar onde apresento meu trabalho como desenvolvedor web
-            e mobile.
+            portfólio. Lugar onde apresento meu trabalho como desenvolvedor
+            full-stack.
           </p>
 
           <p>
-            Aqui você vai encontrar dos mais diversos projetos. E como se já não
-            fosse o bastante, boa parte dos projetos tem seu código
-            disponibilizado no{" "}
+            Aqui você vai encontrar dos mais diversos projetos. Boa parte dos
+            projetos tem seu código disponibilizado no{" "}
             <a href="http://github.com/mayconsgs" target="blank">
               GitHub
             </a>
             , onde deixo disponibilizado todos os meus projetos para que possam
-            ver e avaliar.
+            ser e avaliados e saibam como é a organização dos meus códigos.
           </p>
 
           <p>
-            Comecei no ramo da programação bem jovem, tinha 15 anos durante meu
-            curso técnico de Informática na Etec Mauá, foi lá que aprendi sobre
-            banco de dados, programação web, lógica de programação, programação
-            mobile entre outras coisas. Me desenvolvi muito lá.
+            Comecei no ramo da programação aos 15 anos, durante meu curso
+            técnico de Informática na Etec Mauá, foi lá que tive toda a base da
+            programação. E a partir dali, passei a me desenvolver de maneira
+            autodidata, atravez de documentações e sites das tecnologias em que
+            eu tinha interesse.
           </p>
 
           <p>
-            Com o tempo fui me destacando na área, e decidi viver aqui como
+            Com o tempo fui me destacando na área, e decidi viver isso como
             profissão, passei a estudar mais a fundo as tecnologias. Aprendi
-            ReactJS, Flutter, Node.JS entre outras coisas.
+            Flutter, React.js, Node.js entre outras coisas.
           </p>
 
           <p>
-            Esse portfólio mesmo, foi feito em ReactJS, e usa como back-end APIs
-            do Firebase. Essas coisas facilitaram muito minha vida como Dev.
+            Esse portfólio por exemplo, foi feito utilizando Next.js um
+            Framework que utiliza React.js para criação de interfaces, e no
+            back-end foi utilizado o Firebase assim pude de maneira simples,
+            implementar muitas funcionalidades ao meu site.
           </p>
 
           <p>
@@ -132,24 +134,6 @@ const SobreMim: FunctionComponent = () => {
               percent={75}
             />
           </div>
-        </section>
-        <section className="empresas">
-          <h2>Para empresas</h2>
-          <p>
-            Atualmente estou sem um emprego fixo. Aceito cargos para trabalhar
-            com as tecnologias acima mas, também estou disposto a migrar para
-            outras tecnologias. Caso tenha se interessado meu currículo está
-            disponível
-            <Link href="/curriculo">
-              <a> aqui</a>
-            </Link>{" "}
-            ou você pode falar diretamente comigo. Basta utilizar uma de minhas
-            formas de
-            <Link href="/contatos">
-              <a> contato</a>
-            </Link>
-            .
-          </p>
         </section>
       </main>
     </div>

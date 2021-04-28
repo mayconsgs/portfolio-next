@@ -60,11 +60,10 @@ const Header = () => {
             <MenuItem onClick={onChangeMenu} to="/" label="Inicio" />
             <MenuItem onClick={onChangeMenu} to="/apps" label="Aplicativos" />
             <MenuItem onClick={onChangeMenu} to="/sites" label="Sites" />
-            <MenuItem onClick={onChangeMenu} to="/sobreMim" label="Sobre mim" />
             <MenuItem
               onClick={onChangeMenu}
-              to="/curriculo"
-              label="Currículo"
+              to="/sobre-mim"
+              label="Sobre mim"
             />
             <MenuItem onClick={onChangeMenu} to="/contatos" label="Contatos" />
           </ul>
