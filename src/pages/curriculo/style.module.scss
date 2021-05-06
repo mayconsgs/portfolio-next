@@ -1,33 +1,31 @@
 @use '../../styles/measures';
 
-.curriculo {
-  .topcs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
-    row-gap: 1rem;
+.topcs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
 
-    @media screen and (max-width: measures.$max-to-grid) {
-      display: block;
-    }
+  @media screen and (max-width: measures.$max-to-grid) {
+    display: block;
   }
+}
 
-  ul {
-    > li {
-      display: flex;
-      align-items: center;
+ul {
+  > li {
+    display: flex;
+    align-items: center;
 
-      + li {
-        margin-top: 0.8rem;
-      }
+    + li {
+      margin-top: 0.8rem;
+    }
 
-      svg {
-        margin-right: 0.8rem;
-      }
+    svg {
+      margin-right: 0.8rem;
+    }
 
-      a {
-        margin-left: 0.8rem;
-      }
+    a {
+      margin-left: 0.8rem;
     }
   }
 }

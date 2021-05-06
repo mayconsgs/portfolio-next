@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { FormEvent, FunctionComponent, useState } from "react";
+import { FormEvent, Fragment, FunctionComponent, useState } from "react";
 import {
   FiFacebook,
   FiGithub,
@@ -86,7 +86,7 @@ const Contatos: FunctionComponent = () => {
   }
 
   return (
-    <div className={styles.contatos}>
+    <Fragment>
       <Head>
         <meta
           name="description"
@@ -192,7 +192,7 @@ const Contatos: FunctionComponent = () => {
           }}
         />
       )}
-    </div>
+    </Fragment>
   );
 };
 

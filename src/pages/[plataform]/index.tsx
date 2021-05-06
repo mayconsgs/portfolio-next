@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { Fragment } from "react";
 import LoadingTopBar from "../../components/LoadingTopBar";
 import { ProjectsProps } from "../../components/Slider";
 import { Firestore } from "../../services/firebase";
@@ -34,7 +35,7 @@ const GaleriaDeProjetos = ({ projetos }: GaleriaDeProjetosProps) => {
     "Todos os sites são produzidos com as mais novas e modernas ferramentas, linguagens e tecnologias como: ReactJS, JavaScript, CSS3 e HTML5. Graças a isso, posso fazer sites poderosos, fuídas e totalmente compatíveis com os navegadores. Este portfólio é um exemplo disso. Veja abaixo alguns sites já feitas:";
 
   return (
-    <div className={styles.galeriaDeProjetos}>
+    <Fragment>
       <Head>
         <title>
           {plataform == "apps" ? "Aplicativos" : "Sites"} | Mayconsgs
@@ -63,7 +64,7 @@ const GaleriaDeProjetos = ({ projetos }: GaleriaDeProjetosProps) => {
           })}
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 };
 

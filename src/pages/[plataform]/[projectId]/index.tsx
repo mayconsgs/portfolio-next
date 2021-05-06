@@ -7,7 +7,7 @@ import {
 import Axios from "axios";
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 import LoadingTopBar from "../../../components/LoadingTopBar";
 import { ProjectsProps } from "../../../components/Slider";
@@ -64,7 +64,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
   }
 
   return (
-    <div className={styles.projeto}>
+    <Fragment>
       <Head>
         <title>{project.name} | Mayconsgs</title>
         <meta name="description" content={project.description} />
@@ -172,7 +172,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
           </button>
         </div>
       </section>
-    </div>
+    </Fragment>
   );
 };
 

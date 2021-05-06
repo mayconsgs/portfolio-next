@@ -2,7 +2,7 @@ const Head = dynamic(import("next/head"), {
   loading: () => <LoadingTopBar />,
 });
 import dynamic from "next/dynamic";
-import { FunctionComponent } from "react";
+import { Fragment, FunctionComponent } from "react";
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
@@ -14,7 +14,7 @@ const Curriculo: FunctionComponent = () => {
     ).getUTCFullYear() - 1970;
 
   return (
-    <div className={styles.curriculo}>
+    <Fragment>
       <Head>
         <meta
           name="description"
@@ -162,7 +162,7 @@ const Curriculo: FunctionComponent = () => {
           </ul>
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 };
 

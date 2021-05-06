@@ -9,7 +9,7 @@ import {
   Typescript,
 } from "@icons-pack/react-simple-icons";
 import dynamic from "next/dynamic";
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
 
@@ -33,7 +33,7 @@ const SobreMim: FunctionComponent = () => {
     ).getUTCFullYear() - 1970;
 
   return (
-    <div className={styles.sobreMim}>
+    <Fragment>
       <Head>
         <title>Sobre min | Mayconsgs</title>
         <meta
@@ -136,7 +136,7 @@ const SobreMim: FunctionComponent = () => {
           </div>
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 };
 

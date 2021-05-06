@@ -1,49 +1,142 @@
 @use "../../../styles/measures";
 
-.projeto {
-  .logo {
-    object-fit: cover;
-    width: 15rem;
-    min-width: 15rem;
-    height: 15rem;
-    margin-right: 1.6rem;
-    border-radius: 0.8rem;
-    background-color: var(--color-header);
+.logo {
+  object-fit: cover;
+  width: 15rem;
+  min-width: 15rem;
+  height: 15rem;
+  margin-right: 1.6rem;
+  border-radius: 0.8rem;
+  background-color: var(--color-header);
+}
+
+.galery {
+  display: flex;
+  transition: 1s;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1.5rem;
+  height: 50rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 0.5rem,
+    white calc(100% - 0.5rem),
+    transparent
+  );
+
+  @media screen and (max-width: 1080px) {
+    height: 45rem;
   }
 
-  .galery {
-    display: flex;
-    transition: 1s;
+  @media screen and (max-width: 860px) {
+    height: 35rem;
+  }
+
+  @media screen and (max-width: 720px) {
+    height: 25rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    height: 20rem;
+  }
+
+  &::-webkit-scrollbar {
+    height: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 0.5rem;
+  }
+
+  img {
+    border-radius: 0.8rem;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+    margin-right: 1rem;
+
+    @media (any-hover: hover) {
+      &:hover {
+        z-index: 100;
+        transform: scale(1.03);
+        box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+.infos {
+  display: flex;
+  position: relative;
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  .dados {
+    @media screen and (max-width: measures.$max-to-mobile) {
+      margin-top: 1.6rem;
+    }
+
+    h1 {
+      margin-top: 0rem;
+    }
+
+    .plataforms {
+      position: absolute;
+      width: fit-content;
+      height: fit-content;
+      top: 0rem;
+      right: 0rem;
+
+      a {
+        color: var(--color-secondary);
+        margin-right: 0.8rem;
+        cursor: default;
+
+        svg {
+          transition: all 0.3s;
+          @media (any-hover: hover) {
+            &:hover {
+              color: var(--color-secondary-dark);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.readme {
+  border-radius: 8px;
+  padding: 1.6rem;
+  background-color: var(--color-header);
+  margin-top: 2.4rem;
+
+  p + *,
+  ul + *,
+  pre + *,
+  blockquote + *,
+  h1 + *,
+  h2 + *,
+  h3 + * {
+    margin-top: 2rem;
+  }
+
+  pre {
+    background-color: var(--color-background);
+    border-radius: 0.8rem;
+    padding: 1.6rem;
     overflow-x: auto;
-    overflow-y: hidden;
-    padding: 1.5rem;
-    height: 50rem;
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      white 0.5rem,
-      white calc(100% - 0.5rem),
-      transparent
-    );
-
-    @media screen and (max-width: 1080px) {
-      height: 45rem;
-    }
-
-    @media screen and (max-width: 860px) {
-      height: 35rem;
-    }
-
-    @media screen and (max-width: 720px) {
-      height: 25rem;
-    }
-
-    @media screen and (max-width: 420px) {
-      height: 20rem;
-    }
 
     &::-webkit-scrollbar {
-      height: 1rem;
+      height: 0.5rem;
     }
 
     &::-webkit-scrollbar-track {
@@ -54,165 +147,70 @@
       background: var(--color-secondary);
       border-radius: 0.5rem;
     }
-
-    img {
-      border-radius: 0.8rem;
-      height: 100%;
-      cursor: pointer;
-      box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.3);
-      transition: all 0.3s;
-      margin-right: 1rem;
-
-      @media (any-hover: hover) {
-        &:hover {
-          z-index: 100;
-          transform: scale(1.03);
-          box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.5);
-        }
-      }
-    }
   }
 
-  .infos {
+  blockquote {
+    background-color: var(--color-background);
+    padding: 8px;
+    border-left: 5px solid var(--color-secondary);
+    border-radius: 4px;
+  }
+
+  img {
+    max-height: 480px;
+    max-width: 100%;
+  }
+}
+
+.checkOpenImage {
+  display: none;
+
+  &:checked {
+    ~ .openImage {
+      transition: opacity 0.5s;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.openImage {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 150;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+  background: rgba(15, 17, 17, 0.6);
+  backdrop-filter: blur(measures.$blur);
+
+  .content {
     display: flex;
-    position: relative;
-    margin-top: 2.4rem;
-    margin-bottom: 2.4rem;
-
-    .dados {
-      @media screen and (max-width: measures.$max-to-mobile) {
-        margin-top: 1.6rem;
-      }
-
-      h1 {
-        margin-top: 0rem;
-      }
-
-      .plataforms {
-        position: absolute;
-        width: fit-content;
-        height: fit-content;
-        top: 0rem;
-        right: 0rem;
-
-        a {
-          color: var(--color-secondary);
-          margin-right: 0.8rem;
-          cursor: default;
-
-          svg {
-            transition: all 0.3s;
-            @media (any-hover: hover) {
-              &:hover {
-                color: var(--color-secondary-dark);
-                cursor: pointer;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .readme {
-    border-radius: 8px;
-    padding: 1.6rem;
-    background-color: var(--color-header);
-    margin-top: 2.4rem;
-
-    p + *,
-    ul + *,
-    pre + *,
-    blockquote + *,
-    h1 + *,
-    h2 + *,
-    h3 + * {
-      margin-top: 2rem;
-    }
-
-    pre {
-      background-color: var(--color-background);
-      border-radius: 0.8rem;
-      padding: 1.6rem;
-      overflow-x: auto;
-
-      &::-webkit-scrollbar {
-        height: 0.5rem;
-      }
-
-      &::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: var(--color-secondary);
-        border-radius: 0.5rem;
-      }
-    }
-
-    blockquote {
-      background-color: var(--color-background);
-      padding: 8px;
-      border-left: 5px solid var(--color-secondary);
-      border-radius: 4px;
-    }
-
-    img {
-      max-height: 480px;
-      max-width: 100%;
-    }
-  }
-
-  .checkOpenImage {
-    display: none;
-
-    &:checked {
-      ~ .openImage {
-        transition: opacity 0.5s;
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-  }
-
-  .openImage {
     height: 100%;
     width: 100%;
-    position: fixed;
-    z-index: 150;
-    top: 0;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.5s, visibility 0.5s;
-    background: rgba(15, 17, 17, 0.6);
-    backdrop-filter: blur(measures.$blur);
+    max-width: 120rem;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 
-    .content {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      max-width: 120rem;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
+    .iconButton {
+      color: hsl(0, 0%, 68%);
 
-      .iconButton {
-        color: hsl(0, 0%, 68%);
-
-        &.close {
-          position: absolute;
-          top: 7.8rem;
-          left: 1.6rem;
-          color: white;
-        }
+      &.close {
+        position: absolute;
+        top: 7.8rem;
+        left: 1.6rem;
+        color: white;
       }
+    }
 
-      > img {
-        max-width: calc(100% - 4rem * 2 - 1.6rem * 2);
-        max-height: calc(100% - 5.6rem + 1.6rem * 2);
-        box-shadow: 0rem 0rem 5rem #00000050;
-        margin: 2rem;
-      }
+    > img {
+      max-width: calc(100% - 4rem * 2 - 1.6rem * 2);
+      max-height: calc(100% - 5.6rem + 1.6rem * 2);
+      box-shadow: 0rem 0rem 5rem #00000050;
+      margin: 2rem;
     }
   }
 }

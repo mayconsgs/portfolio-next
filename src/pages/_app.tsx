@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import LoadingTopBar from "../components/LoadingTopBar";
 import "../styles/global.scss";
 
@@ -29,10 +29,10 @@ function MyApp({ Component, pageProps }) {
   }, [router]);
 
   return (
-    <div>
+    <Fragment>
       <Header />
       {pageLoading ? <Loading /> : <Component {...pageProps} />}
-    </div>
+    </Fragment>
   );
 }
 

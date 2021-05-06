@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { Fragment } from "react";
 import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
 
@@ -14,7 +15,7 @@ export default function PageNotFound() {
   const router = useRouter();
 
   return (
-    <div className={styles.pageNotFound}>
+    <Fragment>
       <Head>
         <meta name="description" content="Página não encontrada." />
         <title>404</title>
@@ -42,6 +43,6 @@ export default function PageNotFound() {
           Voltar para o site
         </RaisedButton>
       </main>
-    </div>
+    </Fragment>
   );
 }

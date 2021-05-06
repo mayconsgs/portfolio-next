@@ -2,7 +2,7 @@ import firebase from "firebase";
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import LoadingTopBar from "../components/LoadingTopBar";
 import { ProjectsProps } from "../components/Slider";
 import { Firestore } from "../services/firebase";
@@ -30,7 +30,7 @@ const Home = ({ apps, sites }: HomeProps) => {
   const router = useRouter();
 
   return (
-    <div className={styles.inicio}>
+    <Fragment>
       <Head>
         <meta
           name="description"
@@ -77,7 +77,7 @@ const Home = ({ apps, sites }: HomeProps) => {
           Contate-me
         </RaisedButton>
       </main>
-    </div>
+    </Fragment>
   );
 };
 

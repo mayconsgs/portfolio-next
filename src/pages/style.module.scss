@@ -1,39 +1,35 @@
 @use '../styles/fonts';
 
-.inicio {
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 8rem;
   height: 100%;
+  min-height: 68rem;
+  max-height: 90rem;
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 8rem;
-    height: 100%;
-    min-height: 68rem;
-    max-height: 90rem;
+  > p:first-child {
+    font: fonts.$font-title-h3;
+  }
 
-    > p:first-child {
-      font: fonts.$font-title-h3;
-    }
+  > button {
+    margin-top: 3rem;
+  }
 
-    > button {
-      margin-top: 3rem;
-    }
+  h1 {
+    display: block;
+    cursor: pointer;
+    width: fit-content;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 0.4rem;
+    width: fit-content;
+    transition: 0.3s;
 
-    h1 {
-      display: block;
-      cursor: pointer;
-      width: fit-content;
-      display: block;
-      transition: 0.3s;
-      margin-bottom: 0.4rem;
-      width: fit-content;
-      transition: 0.3s;
-
-      @media (any-hover: hover) {
-        &:hover {
-          color: var(--color-primary-dark);
-        }
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--color-primary-dark);
       }
     }
   }

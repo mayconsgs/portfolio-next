@@ -1,11 +1,9 @@
-.sobreMim {
-  .conhecimento {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 3rem;
+.conhecimento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
 
-    @media screen and (max-width: 600px) {
-      display: block;
-    }
+  @media screen and (max-width: 600px) {
+    display: block;
   }
 }
