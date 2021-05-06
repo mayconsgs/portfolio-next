@@ -22,7 +22,7 @@ const Curriculo: FunctionComponent = () => {
         />
         <title>Currículo | Mayconsgs</title>
       </Head>
-      <main className="content">
+      <main className={`content ${styles.content}`}>
         <div className={styles.topcs}>
           <section>
             <h1>Maycon Santos </h1>
