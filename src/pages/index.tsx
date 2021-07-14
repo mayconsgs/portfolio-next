@@ -83,19 +83,21 @@ const Home = ({ apps, sites }: HomeProps) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    let appsDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[];
-    let sitesDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[];
+    let appsDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[] = [];
+    let sitesDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[] = [];
 
-    const appsDocuments = await Firestore.collection("apps").get();
+    const [appsDocuments, sitesDocuments] = await Promise.all([
+      Firestore.collection("apps").get(),
+      Firestore.collection("sites").get(),
+    ]);
+
     if (!appsDocuments.empty) appsDocumentsSnapshot = appsDocuments.docs;
+    if (!sitesDocuments.empty) sitesDocumentsSnapshot = sitesDocuments.docs;
 
     const apps = appsDocumentsSnapshot.map((e) => ({
       documentId: e.id,
       ...e.data(),
     }));
-
-    const sitesDocuments = await Firestore.collection("sites").get();
-    if (!sitesDocuments.empty) sitesDocumentsSnapshot = sitesDocuments.docs;
 
     const sites = sitesDocumentsSnapshot.map((e) => ({
       documentId: e.id,
