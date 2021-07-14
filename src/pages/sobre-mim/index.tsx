@@ -3,7 +3,7 @@ import {
   Firebase,
   Flutter,
   Javascript,
-  NodeDotJs,
+  Nodedotjs,
   ReactJs,
   Sass,
   Typescript,
@@ -124,7 +124,7 @@ const SobreMim: FunctionComponent = () => {
               percent={80}
             />
             <GraficoDeConhecimento
-              icon={NodeDotJs}
+              icon={Nodedotjs}
               technology="Node.js:"
               percent={80}
             />
