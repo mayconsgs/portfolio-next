@@ -39,6 +39,8 @@
       transition: 1s;
       border-radius: 0.8rem;
       height: 0;
+      aspect-ratio: 16/9;
+      object-fit: cover;
     }
 
     figcaption {

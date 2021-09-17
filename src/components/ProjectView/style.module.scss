@@ -22,6 +22,8 @@
     border-radius: 0.8rem 0.8rem 0rem 0rem;
     border-bottom: 0.1rem solid grey;
     cursor: pointer;
+    aspect-ratio: 16/9;
+    object-fit: cover;
   }
 
   main {
