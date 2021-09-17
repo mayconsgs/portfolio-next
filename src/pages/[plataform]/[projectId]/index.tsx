@@ -1,3 +1,4 @@
+import { doc, getDoc } from "@firebase/firestore/dist/lite";
 import {
   Appstore,
   Github,
@@ -178,22 +179,19 @@ const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
     const plataform = ctx.params.plataform as string;
     const projectId = ctx.params.projectId as string;
-
-    let project: ProjectsProps;
-
     let readme: string;
 
-    const dadosDaconsulta = await Firestore.collection(plataform)
-      .doc(projectId)
-      .get();
-    project = {
+    const docReference = doc(Firestore, plataform, projectId);
+    const dadosDaconsulta = await getDoc(docReference);
+
+    const project = {
       documentId: dadosDaconsulta.id,
       description: dadosDaconsulta.data().description,
       images: dadosDaconsulta.data().images,
       logo: dadosDaconsulta.data().logo,
       name: dadosDaconsulta.data().name,
       plataforms: dadosDaconsulta.data().plataforms,
-    };
+    } as ProjectsProps;
 
     if (project.plataforms.git !== undefined) {
       const start = project.plataforms.git.indexOf("github.com/") + 11;

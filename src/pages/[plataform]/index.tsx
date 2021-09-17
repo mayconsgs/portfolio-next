@@ -1,3 +1,4 @@
+import { collection, getDocs } from "firebase/firestore/lite";
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -73,7 +74,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     let projetos: ProjectsProps[];
     const plataform = ctx.params.plataform as string;
 
-    const listaDeProjetos = await Firestore.collection(plataform).get();
+    const listaDeProjetos = await getDocs(collection(Firestore, plataform));
     projetos = listaDeProjetos.docs.map((e) => ({
       ...e.data(),
       documentId: e.id,

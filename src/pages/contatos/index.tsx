@@ -1,3 +1,4 @@
+import { addDoc, collection } from "firebase/firestore/lite";
 import dynamic from "next/dynamic";
 import { FormEvent, Fragment, FunctionComponent, useState } from "react";
 import {
@@ -44,14 +45,13 @@ const Contatos: FunctionComponent = () => {
   async function sendMessage(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    await Firestore.collection("message")
-      .add({
-        nome,
-        email,
-        assunto,
-        menssagem,
-      })
-      .then((reference) => {
+    addDoc(collection(Firestore, "message"), {
+      nome,
+      email,
+      assunto,
+      menssagem,
+    })
+      .then(() => {
         setNotify({
           title: "",
           message: "Mensagem encaminhada. Em breve você receberá um retorno.",
@@ -64,7 +64,7 @@ const Contatos: FunctionComponent = () => {
         setAssunto("");
         setMenssagem("");
       })
-      .catch((error) => {
+      .catch(() => {
         setNotify({
           title: "",
           message: "Algo deu errado ao enviar a mensagem",

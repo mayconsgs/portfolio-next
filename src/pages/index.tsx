@@ -1,4 +1,8 @@
-import firebase from "firebase";
+import {
+  collection,
+  getDocs,
+  QueryDocumentSnapshot,
+} from "firebase/firestore/lite";
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -50,6 +54,7 @@ const Home = ({ apps, sites }: HomeProps) => {
             }}
           >
             Aplicativos
+            {/* <FiChevronDown size="3rem" /> */}
           </h1>
           Flutter e ReactNative
           <Slider plataform="apps" projects={apps} isOpen={appsOpen} />
@@ -64,6 +69,7 @@ const Home = ({ apps, sites }: HomeProps) => {
             }}
           >
             Sites
+            {/* <FiChevronDown size="3rem" /> */}
           </h1>
           Flutter e ReactJS
           <Slider plataform="sites" projects={sites} isOpen={sitesOpen} />
@@ -83,12 +89,15 @@ const Home = ({ apps, sites }: HomeProps) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    let appsDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[] = [];
-    let sitesDocumentsSnapshot: firebase.firestore.QueryDocumentSnapshot[] = [];
+    let appsDocumentsSnapshot: QueryDocumentSnapshot[] = [];
+    let sitesDocumentsSnapshot: QueryDocumentSnapshot[] = [];
+
+    const appsCollection = collection(Firestore, "apps");
+    const sitesCollection = collection(Firestore, "sites");
 
     const [appsDocuments, sitesDocuments] = await Promise.all([
-      Firestore.collection("apps").get(),
-      Firestore.collection("sites").get(),
+      getDocs(appsCollection),
+      getDocs(sitesCollection),
     ]);
 
     if (!appsDocuments.empty) appsDocumentsSnapshot = appsDocuments.docs;
