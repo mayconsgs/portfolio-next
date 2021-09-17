@@ -18,7 +18,6 @@ import styles from "./style.module.scss";
 const Head = dynamic(import("next/head"), {
   loading: () => <LoadingTopBar />,
 });
-
 const PageNotFound = dynamic(import("../../404"), {
   loading: () => <LoadingTopBar />,
 });
