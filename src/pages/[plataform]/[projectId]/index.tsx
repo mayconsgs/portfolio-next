@@ -1,4 +1,4 @@
-import { doc, getDoc } from "@firebase/firestore/dist/lite";
+import { doc, getDoc } from "@firebase/firestore/lite";
 import {
   Appstore,
   Github,
