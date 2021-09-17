@@ -1,15 +1,15 @@
-import {
-  Dart,
-  Firebase,
-  Flutter,
-  Javascript,
-  Nodedotjs,
-  ReactJs,
-  Sass,
-  Typescript,
-} from "@icons-pack/react-simple-icons";
 import dynamic from "next/dynamic";
 import React, { Fragment, FunctionComponent } from "react";
+import {
+  SiDart,
+  SiFirebase,
+  SiFlutter,
+  SiJavascript,
+  SiNodeDotJs,
+  SiReact,
+  SiSass,
+  SiTypescript,
+} from "react-icons/si";
 import LoadingTopBar from "../../components/LoadingTopBar";
 import styles from "./style.module.scss";
 
@@ -92,44 +92,44 @@ const SobreMim: FunctionComponent = () => {
           <h2>Nível de conhecimento</h2>
           <div className={styles.conhecimento}>
             <GraficoDeConhecimento
-              icon={Dart}
+              icon={SiDart}
               technology="Dart:"
               percent={95}
             />
             {/* eslint-disable-next-line */}
             <GraficoDeConhecimento
-              icon={Javascript}
+              icon={SiJavascript}
               // eslint-disable-next-line no-script-url
               technology="JavaScript:"
               percent={95}
             />
             <GraficoDeConhecimento
-              icon={Sass}
+              icon={SiSass}
               technology="SCSS:"
               percent={90}
             />
             <GraficoDeConhecimento
-              icon={Flutter}
+              icon={SiFlutter}
               technology="Flutter:"
               percent={85}
             />
             <GraficoDeConhecimento
-              icon={ReactJs}
+              icon={SiReact}
               technology="React.js:"
               percent={85}
             />
             <GraficoDeConhecimento
-              icon={Typescript}
+              icon={SiTypescript}
               technology="TypeScript:"
               percent={80}
             />
             <GraficoDeConhecimento
-              icon={Nodedotjs}
+              icon={SiNodeDotJs}
               technology="Node.js:"
               percent={80}
             />
             <GraficoDeConhecimento
-              icon={Firebase}
+              icon={SiFirebase}
               technology="Firebase:"
               percent={75}
             />

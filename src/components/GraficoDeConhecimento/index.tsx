@@ -1,10 +1,9 @@
-import { Icon } from "@icons-pack/react-simple-icons";
+import { IconType } from "react-icons";
 import styles from "./style.module.scss";
-
 interface Conhecimento {
   technology: string;
   percent: number;
-  icon: Icon;
+  icon: IconType;
 }
 
 const GraficoDeConhecimento: React.FC<Conhecimento> = ({

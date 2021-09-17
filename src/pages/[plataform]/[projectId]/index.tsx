@@ -1,15 +1,15 @@
 import { doc, getDoc } from "@firebase/firestore/lite";
-import {
-  Appstore,
-  Github,
-  Googlechrome,
-  Googleplay,
-} from "@icons-pack/react-simple-icons";
 import Axios from "axios";
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import { Fragment, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
+import {
+  SiAppstore,
+  SiGithub,
+  SiGooglechrome,
+  SiGoogleplay,
+} from "react-icons/si";
 import ReactMarkdown from "react-markdown";
 import LoadingTopBar from "../../../components/LoadingTopBar";
 import { ProjectsProps } from "../../../components/Slider";
@@ -81,7 +81,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github size="3.5rem" />
+                  <SiGithub size="3.5rem" />
                 </a>
               ) : null}
               {project.plataforms.play !== "" ? (
@@ -90,7 +90,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Googleplay size="3.5rem" />
+                  <SiGoogleplay size="3.5rem" />
                 </a>
               ) : null}
               {project.plataforms.app !== "" ? (
@@ -99,7 +99,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Appstore size="3.5rem" />
+                  <SiAppstore size="3.5rem" />
                 </a>
               ) : null}
               {project.plataforms.web !== "" ? (
@@ -108,7 +108,7 @@ const Projeto = ({ project, hasProject, readme }: ProjectPageProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Googlechrome size="3.5rem" />
+                  <SiGooglechrome size="3.5rem" />
                 </a>
               ) : null}
             </div>
