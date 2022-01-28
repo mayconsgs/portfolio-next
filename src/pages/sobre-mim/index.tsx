@@ -5,7 +5,7 @@ import {
   SiFirebase,
   SiFlutter,
   SiJavascript,
-  SiNodeDotJs,
+  SiNodedotjs,
   SiReact,
   SiSass,
   SiTypescript,
@@ -124,7 +124,7 @@ const SobreMim: FunctionComponent = () => {
               percent={80}
             />
             <GraficoDeConhecimento
-              icon={SiNodeDotJs}
+              icon={SiNodedotjs}
               technology="Node.js:"
               percent={80}
             />
